@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(uuid())
+  name     String?
+  email    String    @unique
+  password String
+  pan String?
+  taxData  TaxData[]
+  role     String   @default("user") // 👈 Add this
+  regime    Boolean? // ✅ true = new regime, false = old
+  createdAt DateTime @default(now())
+  regimeChangedAt    DateTime?
+  regimeChangeCount  Int      @default(0)
+}
+
+model TaxData {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  year      Int
+  income    Float
+  taxPaid   Float
+  createdAt DateTime @default(now())
+}
