@@ -2,6 +2,7 @@
 
 import DashboardLayout from "@/layouts/DashboardLayout"
 import { useState } from "react"
+import "@/styles/change-password.css"
 
 export default function ChangePasswordPage() {
   const [currentPassword, setCurrentPassword] = useState("")
@@ -28,63 +29,57 @@ export default function ChangePasswordPage() {
 
       const data = await res.json()
       if (res.ok) {
-        setMessage("Password changed successfully!")
+        setMessage("✅ Password changed successfully!")
         setCurrentPassword("")
         setNewPassword("")
         setConfirmPassword("")
       } else {
-        setMessage(data.error || "Something went wrong.")
+        setMessage(data.error || "❌ Something went wrong.")
       }
     } catch (err) {
-      setMessage("Network error.")
+      setMessage("❌ Network error.")
     }
   }
 
   return (
     <DashboardLayout>
-      <div className="bg-white max-w-md mx-auto mt-12 p-6 rounded shadow">
-        <h2 className="text-2xl font-semibold mb-6">Change Password</h2>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label className="block font-medium">Current Password</label>
+      <div className="password-container">
+        <h2 className="password-title">Change Password</h2>
+        <form className="password-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Current Password</label>
             <input
               type="password"
-              className="w-full border rounded p-2"
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
               required
             />
           </div>
-          <div>
-            <label className="block font-medium">New Password</label>
+
+          <div className="form-group">
+            <label>New Password</label>
             <input
               type="password"
-              className="w-full border rounded p-2"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               required
             />
           </div>
-          <div>
-            <label className="block font-medium">Confirm New Password</label>
+
+          <div className="form-group">
+            <label>Confirm New Password</label>
             <input
               type="password"
-              className="w-full border rounded p-2"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
           </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-          >
-            Change Password
-          </button>
+
+          <button type="submit">Change Password</button>
         </form>
-        {message && (
-          <p className="mt-4 text-center text-sm text-red-600">{message}</p>
-        )}
+
+        {message && <p className="status-message">{message}</p>}
       </div>
     </DashboardLayout>
   )

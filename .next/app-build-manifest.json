@@ -9,6 +9,7 @@
     "/login/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/login/page.css",
       "static/chunks/app/login/page.js"
     ],
     "/api/login/route": [
@@ -19,11 +20,46 @@
     "/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/dashboard/page.css",
       "static/chunks/app/dashboard/page.js"
+    ],
+    "/api/admin/regime-summary/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/admin/regime-summary/route.js"
+    ],
+    "/taxes/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/taxes/page.css",
+      "static/chunks/app/taxes/page.js"
+    ],
+    "/api/user/profile/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/user/profile/route.js"
+    ],
+    "/change-password/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/change-password/page.css",
+      "static/chunks/app/change-password/page.js"
+    ],
+    "/tax-regime/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/tax-regime/page.css",
+      "static/chunks/app/tax-regime/page.js"
+    ],
+    "/api/user/regime/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/user/regime/route.js"
     ],
     "/admin/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/admin/page.css",
       "static/chunks/app/admin/page.js"
     ],
     "/api/admin/users/route": [
@@ -31,30 +67,17 @@
       "static/chunks/main-app.js",
       "static/chunks/app/api/admin/users/route.js"
     ],
+    "/report/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/report/page.css",
+      "static/chunks/app/report/page.js"
+    ],
     "/register/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
+      "static/css/app/register/page.css",
       "static/chunks/app/register/page.js"
-    ],
-    "/api/register/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/register/route.js"
-    ],
-    "/change-password/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/change-password/page.js"
-    ],
-    "/taxes/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/taxes/page.js"
-    ],
-    "/api/user/profile/route": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/api/user/profile/route.js"
     ],
     "/_not-found/page": [
       "static/chunks/webpack.js",

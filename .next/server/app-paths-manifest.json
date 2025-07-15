@@ -1,13 +1,14 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/api/admin/users/route": "app/api/admin/users/route.js",
-  "/api/register/route": "app/api/register/route.js",
   "/api/user/profile/route": "app/api/user/profile/route.js",
-  "/api/login/route": "app/api/login/route.js",
-  "/login/page": "app/login/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/register/page": "app/register/page.js",
+  "/api/admin/regime-summary/route": "app/api/admin/regime-summary/route.js",
+  "/api/admin/users/route": "app/api/admin/users/route.js",
+  "/api/user/regime/route": "app/api/user/regime/route.js",
   "/taxes/page": "app/taxes/page.js",
-  "/change-password/page": "app/change-password/page.js",
-  "/dashboard/page": "app/dashboard/page.js"
+  "/register/page": "app/register/page.js",
+  "/tax-regime/page": "app/tax-regime/page.js",
+  "/report/page": "app/report/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/change-password/page": "app/change-password/page.js"
 }

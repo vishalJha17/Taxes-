@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import DashboardLayout from "@/layouts/DashboardLayout"
+import "@/styles/tax.css"
 
 export default function TaxRegimePage() {
   const [regime, setRegime] = useState("")
@@ -51,8 +52,6 @@ export default function TaxRegimePage() {
     if (res.ok) {
       const label = regime === "new" ? "New" : "Old"
       setMessage(`✅ Regime updated to ${label}`)
-
-      // ⬇️ Download pre-generated PDF
       downloadRegimePdf(regime)
     } else {
       setMessage(data.error || "❌ Something went wrong")
@@ -61,49 +60,48 @@ export default function TaxRegimePage() {
 
   return (
     <DashboardLayout>
-      <div className="max-w-xl mx-auto mt-10 bg-white p-8 rounded-2xl shadow-xl border">
-        <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">
-          Select Your Tax Regime
-        </h2>
+      <div className="tax-wrapper">
+        <div className="tax-card">
+          <h2 className="tax-title">Choose Your Tax Regime</h2>
 
-        {loading ? (
-          <p className="text-gray-500 text-center">Loading current regime...</p>
-        ) : (
-          <>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              Regime
-            </label>
-            <select
-              value={regime}
-              onChange={(e) => setRegime(e.target.value)}
-              className="w-full p-3 border rounded-lg mb-4 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="">-- Select Regime --</option>
-              <option value="old">Old Regime</option>
-              <option value="new">New Regime</option>
-            </select>
-
-            <button
-              onClick={handleSubmit}
-              disabled={!regime}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition disabled:opacity-50"
-            >
-              Submit & Download
-            </button>
-
-            {message && (
-              <div
-                className={`mt-5 text-center p-3 rounded-lg font-medium text-sm ${
-                  message.startsWith("✅")
-                    ? "bg-green-100 text-green-800"
-                    : "bg-red-100 text-red-800"
-                }`}
+          {loading ? (
+            <p className="tax-loading">Fetching your regime...</p>
+          ) : (
+            <>
+              <label htmlFor="regime" className="tax-label">
+                Select Regime
+              </label>
+              <select
+                id="regime"
+                value={regime}
+                onChange={(e) => setRegime(e.target.value)}
+                className="tax-select"
               >
-                {message}
-              </div>
-            )}
-          </>
-        )}
+                <option value="">-- Select Regime --</option>
+                <option value="old">Old Regime</option>
+                <option value="new">New Regime</option>
+              </select>
+
+              <button
+                className="tax-button"
+                disabled={!regime}
+                onClick={handleSubmit}
+              >
+                Submit & Download PDF
+              </button>
+
+              {message && (
+                <div
+                  className={`tax-message ${
+                    message.startsWith("✅") ? "success" : "error"
+                  }`}
+                >
+                  {message}
+                </div>
+              )}
+            </>
+          )}
+        </div>
       </div>
     </DashboardLayout>
   )

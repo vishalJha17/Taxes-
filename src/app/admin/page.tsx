@@ -3,18 +3,22 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import DashboardLayout from "@/layouts/DashboardLayout"
+import "@/styles/admin.css" // ✅ import the plain CSS
 
-type User = {
+interface User {
   id: string
   name: string
   email: string
   role: string
+  pan?: string
+  regime?: boolean
 }
 
 export default function AdminPage() {
   const router = useRouter()
   const [users, setUsers] = useState<User[]>([])
   const [loading, setLoading] = useState(true)
+  const [notAdmin, setNotAdmin] = useState(false)
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -25,7 +29,14 @@ export default function AdminPage() {
       })
 
       if (res.status === 403) {
-        router.push("/dashboard") // 🚫 redirect if not admin
+        setNotAdmin(true)
+        setLoading(false)
+        return
+      }
+
+      if (!res.ok) {
+        console.error("Failed to fetch users")
+        setLoading(false)
         return
       }
 
@@ -39,28 +50,36 @@ export default function AdminPage() {
 
   return (
     <DashboardLayout>
-      <div className="bg-white p-6 rounded shadow">
-        <h1 className="text-2xl font-bold mb-4">Admin - User Management</h1>
+      <div className="admin-container">
+        <h1 className="admin-heading">Admin - User Management</h1>
 
         {loading ? (
-          <p>Loading users...</p>
+          <div className="text-center">Loading users...</div>
+        ) : notAdmin ? (
+          <div className="text-center text-danger">
+            🚫 Only admins can access this page.
+          </div>
+        ) : users.length === 0 ? (
+          <div className="text-center">No users found.</div>
         ) : (
-          <table className="w-full table-auto border-collapse">
+          <table className="admin-table">
             <thead>
-              <tr className="bg-gray-100 text-left">
-                <th className="p-2 border">Name</th>
-                <th className="p-2 border">Email</th>
-                <th className="p-2 border">Role</th>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>PAN</th>
+                <th>Regime</th>
+                <th>Role</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => (
                 <tr key={user.id}>
-                  <td className="p-2 border">{user.name}</td>
-                  <td className="p-2 border">{user.email}</td>
-                  <td className="p-2 border font-medium text-blue-600">
-                    {user.role}
-                  </td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.pan || "—"}</td>
+                  <td>{user.regime ? "New" : "Old"}</td>
+                  <td>{user.role}</td>
                 </tr>
               ))}
             </tbody>

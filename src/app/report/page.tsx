@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import DashboardLayout from "@/layouts/DashboardLayout"
+import "@/styles/report.css"
 
 export default function ReportPage() {
   const [regime, setRegime] = useState<string | null>(null)
@@ -27,21 +28,21 @@ export default function ReportPage() {
 
   return (
     <DashboardLayout>
-      <div className="bg-white p-6 rounded shadow max-w-xl mx-auto">
-        <h1 className="text-2xl font-bold mb-4">Tax Regime Report</h1>
+      <div className="report-container">
+        <h1 className="report-title">Tax Regime Report</h1>
 
         {loading ? (
-          <p>Loading your data...</p>
+          <p className="report-loading">Loading your data...</p>
         ) : (
-          <div className="space-y-4">
-            <div className="border p-4 rounded">
-              <h2 className="font-semibold text-lg">Selected Regime:</h2>
-              <p className="text-blue-600 text-xl mt-1 capitalize">{regime}</p>
+          <div>
+            <div className="report-section">
+              <h2>Selected Regime:</h2>
+              <p className="report-regime">{regime}</p>
             </div>
 
-            <div className="border p-4 rounded">
-              <h2 className="font-semibold text-lg">Summary:</h2>
-              <ul className="list-disc list-inside text-gray-700">
+            <div className="report-section">
+              <h2>Summary:</h2>
+              <ul className="report-summary-list">
                 <li>
                   Regime: <span className="capitalize">{regime}</span>
                 </li>

@@ -1,0 +1,50 @@
+/* src/styles/admin.css */
+.admin-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-image: url("/images/admin-bg.jpg"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  backdrop-filter: blur(5px);
+}
+
+.admin-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #003366;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-danger {
+  color: #ff4d4f;
+  font-weight: bold;
+}

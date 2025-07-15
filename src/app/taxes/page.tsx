@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import DashboardLayout from "@/layouts/DashboardLayout"
 import { Pencil } from "lucide-react"
-
+import "@/styles/tax.css"
 export default function TaxesPage() {
   const [name, setName] = useState("")
   const [pan, setPan] = useState("")

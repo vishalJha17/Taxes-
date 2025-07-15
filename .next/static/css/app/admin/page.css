@@ -1,0 +1,208 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/dashboard.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+/* Layout */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: #1e293b;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+.sidebar-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+
+.sidebar-nav {
+  flex: 1 1;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-link:hover {
+  background-color: #334155;
+}
+
+.logout-button {
+  background-color: #dc2626;
+  border: none;
+  padding: 10px;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: auto;
+}
+
+.logout-button:hover {
+  background-color: #b91c1c;
+}
+
+/* Main Area */
+.dashboard-main {
+  flex: 1 1;
+  background-color: #f8fafc;
+  padding: 32px;
+}
+
+.dashboard-header h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #1e293b;
+}
+
+.dashboard-header p {
+  font-size: 16px;
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+/* Tiles */
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 24px;
+  gap: 24px;
+}
+
+.tile-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+.tile-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+  transform: translateY(-2px);
+}
+
+.tile-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tile-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.tile-description {
+  font-size: 14px;
+  color: #4b5563;
+  margin-top: 8px;
+  flex-grow: 1;
+}
+
+.tile-footer {
+  font-size: 14px;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+
+/* Icon Colors */
+.tile-icon {
+  width: 24px;
+  height: 24px;
+}
+.tile-icon.blue {
+  color: #2563eb;
+}
+.tile-icon.green {
+  color: #059669;
+}
+.tile-icon.red {
+  color: #dc2626;
+}
+.dashboard-main-bg {
+  background-image: url("/images/admin-bg.jpg"); /* Update path if needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/*!******************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[10].use[3]!./src/styles/admin.css ***!
+  \******************************************************************************************************************************************************************************************************************************************************************/
+/* src/styles/admin.css */
+.admin-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-image: url("/images/admin-bg.jpg"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.admin-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #003366;
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-danger {
+  color: #ff4d4f;
+  font-weight: bold;
+}
+

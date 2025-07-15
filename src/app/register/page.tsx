@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
+import "@/styles/register.css" // <-- Import the external CSS
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -47,11 +48,9 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
-        <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">
-          Register
-        </h1>
+    <div className="register-container-wrapper">
+      <div className="register-container">
+        <h1 className="register-title">Register</h1>
 
         <input
           type="text"
@@ -59,7 +58,7 @@ export default function RegisterPage() {
           placeholder="Full Name"
           value={formData.name}
           onChange={handleChange}
-          className="w-full mb-4 p-3 border rounded-lg"
+          className="register-input"
         />
 
         <input
@@ -68,7 +67,7 @@ export default function RegisterPage() {
           placeholder="PAN Number"
           value={formData.pan}
           onChange={handleChange}
-          className="w-full mb-4 p-3 border rounded-lg"
+          className="register-input"
         />
 
         <input
@@ -77,7 +76,7 @@ export default function RegisterPage() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
-          className="w-full mb-4 p-3 border rounded-lg"
+          className="register-input"
         />
 
         <input
@@ -86,40 +85,32 @@ export default function RegisterPage() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
-          className="w-full mb-4 p-3 border rounded-lg"
+          className="register-input"
         />
 
         <select
           name="regime"
           value={formData.regime}
           onChange={handleChange}
-          className="w-full mb-4 p-3 border rounded-lg bg-white"
+          className="register-select"
         >
           <option value="">-- Select Tax Regime --</option>
           <option value="old">Old Regime</option>
           <option value="new">New Regime</option>
         </select>
 
-        {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
-        {success && <p className="text-green-600 text-sm mb-4">{success}</p>}
+        {error && <p className="register-message register-error">{error}</p>}
+        {success && (
+          <p className="register-message register-success">{success}</p>
+        )}
 
-        <button
-          onClick={handleSubmit}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg transition"
-        >
+        <button onClick={handleSubmit} className="register-button">
           Register
         </button>
 
-        <div className="mt-4 text-center">
-          <p className="text-sm text-gray-600">
-            Already have an account?
-            <button
-              onClick={() => router.push("/login")}
-              className="ml-1 text-blue-600 hover:underline font-medium"
-            >
-              Login
-            </button>
-          </p>
+        <div className="register-footer">
+          Already have an account?
+          <button onClick={() => router.push("/login")}>Login</button>
         </div>
       </div>
     </div>

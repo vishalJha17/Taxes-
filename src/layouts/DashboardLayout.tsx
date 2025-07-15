@@ -1,6 +1,8 @@
 "use client"
+
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import "@/styles/dashboard.css"
 
 const Sidebar = () => {
   const router = useRouter()
@@ -13,21 +15,17 @@ const Sidebar = () => {
   ]
 
   return (
-    <aside className="w-64 h-screen bg-blue-900 text-white flex flex-col px-4 py-6">
-      <h1 className="text-2xl font-bold mb-8">Tax Regime</h1>
-      <nav className="flex-1 space-y-2">
+    <aside className="sidebar">
+      <h1 className="sidebar-title">Tax Regime</h1>
+      <nav className="sidebar-nav">
         {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="block py-2 px-3 rounded hover:bg-blue-700 transition"
-          >
+          <Link key={link.href} href={link.href} className="sidebar-link">
             {link.label}
           </Link>
         ))}
       </nav>
       <button
-        className="bg-red-600 hover:bg-red-700 py-2 rounded mt-6"
+        className="logout-button"
         onClick={() => {
           localStorage.removeItem("token")
           router.push("/login")
@@ -45,9 +43,9 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="flex">
+    <div className="dashboard-layout">
       <Sidebar />
-      <main className="flex-1 min-h-screen bg-gray-50 p-6">{children}</main>
+      <main className="dashboard-main">{children}</main>
     </div>
   )
 }
